@@ -1,0 +1,34 @@
+{
+    "categories": [
+        {
+            "key": "metal-type",
+            "description": "METAL TYPE",
+            "values": [
+                {
+                    "key": "metal-type-1",
+                    "description": "TWO TONE",
+                    "image": "daytona-1.png",
+                    "price": 200
+                },
+                {
+                    "key": "metal-type-2",
+                    "description": "GOLD",
+                    "image": "daytona-2.png",
+                    "price": 200
+                }, 
+                {
+                    "key": "metal-type-3",
+                    "description": "STAINLESS STEEL",
+                    "image": "daytona-3.png",
+                    "price": 200
+                },
+                {
+                    "key": "metal-type-4",
+                    "description": "BLACK",
+                    "image": "daytona-4.png",
+                    "price": 200
+                }
+            ]
+        }
+    ]
+}
