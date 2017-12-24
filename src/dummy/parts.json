@@ -29,6 +29,42 @@
                     "price": 200
                 }
             ]
+        },
+        {
+            "key": "bezel-type",
+            "description": "BEZEL TYPE",
+            "values": [
+                {
+                    "key": "bezel-type-1",
+                    "description": "TWO TONE",
+                    "image": "bezel-type-1.png",
+                    "price": 200
+                },
+                {
+                    "key": "bezel-type-2",
+                    "description": "GOLD",
+                    "image": "bezel-type-2.png",
+                    "price": 200
+                }, 
+                {
+                    "key": "bezel-type-3",
+                    "description": "STAINLESS STEEL",
+                    "image": "bezel-type-3.png",
+                    "price": 200
+                },
+                {
+                    "key": "bezel-type-4",
+                    "description": "STAINLESS STEEL",
+                    "image": "bezel-type-4.png",
+                    "price": 200
+                },
+                {
+                    "key": "bezel-type-5",
+                    "description": "STAINLESS STEEL",
+                    "image": "bezel-type-5.png",
+                    "price": 200
+                }
+            ]
         }
     ]
 }

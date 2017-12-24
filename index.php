@@ -61,8 +61,8 @@
                                     <div class="container-fluid">
                                         <!-- LOOP METAL TYPE -->
                                         <div class="row">
-                                            <?php for($i = 0; $i < 4; $i++)  { ?>
-                                                <div class="col-md-6 opt-metal-type" id="bezel-type-<?php echo $i+1; ?>">
+                                            <?php for($i = 0; $i < 5; $i++)  { ?>
+                                                <div class="col-md-6 opt-bezel-type" id="bezel-type-<?php echo $i+1; ?>">
                                                     <a title="">
                                                         <div class="image-container">
                                                             <img src="./src/images/bezel-type-<?php echo $i+1; ?>.png" alt="NIGHTFLIGHT" />
@@ -116,7 +116,10 @@
                         <div class="col-md-6">
                             <div class="watch-container">
                                 <img class="metal-type" src="src/images/daytona-1.png" alt="">
-                                <img class="dial" src="src/images/base_1_dial.png" alt="">
+                                <img class="bezel-type">
+                                <iframe class="dial" id="svgCustomiser" src="./src/images/dial.svg" width="212" height="212"></iframe>
+                                <!-- <img class="dial" src="./src/images/dial.svg" alt="Kiwi standing on oval"> -->
+                                <!-- <img class="dial" src="src/images/base_1_dial.png" alt=""> -->
                             </div>
                         </div>
                     </div>

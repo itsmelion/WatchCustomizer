@@ -83,6 +83,29 @@ section {
                         max-width: 80%;
                     }
                 }
+            }
+            
+            .opt-bezel-type {
+                cursor: pointer;
+                
+                a {
+                    text-decoration: none;
+                    height: 100%;
+                    color: white;
+                    text-align: center;
+                }
+                p {
+                    display: 'block';	
+                }
+                
+                .image-container {
+                    height: 190px;
+                    max-height: 190px;
+                    img {
+                        max-height: 80%;
+                        max-width: 80%;
+                    }
+                }
 			}
         }
         .watch-box {
@@ -110,15 +133,28 @@ section {
             left: 0;
             position: absolute;
         }
-        .bezel {
-            top: 13%;
-            left: 12%;
+        .bezel-type {
+            top: 0%;
+            left: 0%;
             position: absolute;   
         }
         .dial {
-            top: 17.1%;
-            left: 4.7%;
+            left: 12%;
+            top: 37.3%;
+            width: 212px;
             position: absolute;
+            border: none;
+
+            use {
+                #bigSecondHand {
+                    width: 152.746px;
+                    height: 10.896px;
+                    x: -111.153px;
+                    y: -5.448px;
+                    overflow-x: visible;
+                    overflow-y: visible;
+                }
+            }
         }
     }
 }

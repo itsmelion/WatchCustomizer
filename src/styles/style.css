@@ -69,6 +69,26 @@ section.customizer-container .options .opt-metal-type .image-container img {
   max-height: 80%;
   max-width: 80%;
 }
+section.customizer-container .options .opt-bezel-type {
+  cursor: pointer;
+}
+section.customizer-container .options .opt-bezel-type a {
+  text-decoration: none;
+  height: 100%;
+  color: white;
+  text-align: center;
+}
+section.customizer-container .options .opt-bezel-type p {
+  display: 'block';
+}
+section.customizer-container .options .opt-bezel-type .image-container {
+  height: 190px;
+  max-height: 190px;
+}
+section.customizer-container .options .opt-bezel-type .image-container img {
+  max-height: 80%;
+  max-width: 80%;
+}
 section.customizer-container .watch-box {
   text-align: center;
   border: 1px solid #323232;
@@ -92,13 +112,23 @@ section.customizer-container .metal-type {
   left: 0;
   position: absolute;
 }
-section.customizer-container .bezel {
-  top: 13%;
-  left: 12%;
+section.customizer-container .bezel-type {
+  top: 0%;
+  left: 0%;
   position: absolute;
 }
 section.customizer-container .dial {
-  top: 17.1%;
-  left: 4.7%;
+  left: 12%;
+  top: 37.3%;
+  width: 212px;
   position: absolute;
+  border: none;
+}
+section.customizer-container .dial use #bigSecondHand {
+  width: 152.746px;
+  height: 10.896px;
+  x: -111.153px;
+  y: -5.448px;
+  overflow-x: visible;
+  overflow-y: visible;
 }
