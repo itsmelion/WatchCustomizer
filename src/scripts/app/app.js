@@ -1,4 +1,4 @@
-jQuery(function ($) {
+$(function () {
 
     var isSafari = navigator.userAgent.indexOf('Safari') > -1;
 
@@ -56,7 +56,8 @@ jQuery(function ($) {
             case 'bezel-type':
                 bezelTypes = values;
                 break;
-            default: break;
+            default:
+                break;
         }
     }
 
@@ -76,7 +77,9 @@ jQuery(function ($) {
         // window.history.replaceState(null, null, url);
         if (history.pushState) {
             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + url;
-            window.history.pushState({ path: newurl }, '', newurl);
+            window.history.pushState({
+                path: newurl
+            }, '', newurl);
         }
     });
     $('.opt-bezel-type').click(function (event) {
@@ -87,7 +90,9 @@ jQuery(function ($) {
         // window.history.replaceState(null, null, url);
         if (history.pushState) {
             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + url;
-            window.history.pushState({ path: newurl }, '', newurl);
+            window.history.pushState({
+                path: newurl
+            }, '', newurl);
         }
     });
 
@@ -126,25 +131,37 @@ jQuery(function ($) {
         var currentSeconds = currentDate.getSeconds();
         var secondsDegrees = 0 - (180 + (currentSeconds * 6));
         var currentTransform = $secondHand.attr('transform');
-        $secondHand.attr({ 'transform': alterRotate(currentTransform, secondsDegrees) });
+        $secondHand.attr({
+            'transform': alterRotate(currentTransform, secondsDegrees)
+        });
         currentTransform = $bigSecondHand.attr('transform');
-        $bigSecondHand.attr({ 'transform': alterRotate(currentTransform, secondsDegrees) });
+        $bigSecondHand.attr({
+            'transform': alterRotate(currentTransform, secondsDegrees)
+        });
         currentMinutes = currentDate.getMinutes();
         var minutesDegrees = 60 - (currentMinutes * 6);
         currentTransform = $minuteHand.attr('transform');
-        $minuteHand.attr({ 'transform': alterRotate(currentTransform, minutesDegrees) });
+        $minuteHand.attr({
+            'transform': alterRotate(currentTransform, minutesDegrees)
+        });
         currentTransform = $bigMinuteHand.attr('transform');
         minutesDegrees = 60 - (currentMinutes * 6);
-        $bigMinuteHand.attr({ 'transform': alterRotate(currentTransform, minutesDegrees) });
+        $bigMinuteHand.attr({
+            'transform': alterRotate(currentTransform, minutesDegrees)
+        });
         currentHours = currentDate.getHours();
         if (currentHours > 12) {
             currentHours -= 12;
         }
         var hoursDegrees = 0 - (60 + ((currentHours * 30) + Math.round(currentMinutes / 2)));
         currentTransform = $hourHand.attr('transform');
-        $hourHand.attr({ 'transform': alterRotate(currentTransform, hoursDegrees) });
+        $hourHand.attr({
+            'transform': alterRotate(currentTransform, hoursDegrees)
+        });
         currentTransform = $bigHourHand.attr('transform');
-        $bigHourHand.attr({ 'transform': alterRotate(currentTransform, hoursDegrees) });
+        $bigHourHand.attr({
+            'transform': alterRotate(currentTransform, hoursDegrees)
+        });
         littleSecondsAnimation = document.createElementNS('http://www.w3.org/2000/svg', 'animateTransform');
         littleSecondsAnimation.setAttributeNS(null, 'attributeName', 'transform');
         littleSecondsAnimation.setAttributeNS(null, 'additive', 'sum');
@@ -185,18 +202,26 @@ jQuery(function ($) {
             currentMinutes = newMinutes;
             var minutesDegrees = 60 - (newMinutes * 6);
             currentTransform = $minuteHand.attr('transform');
-            $minuteHand.attr({ 'transform': alterRotate(currentTransform, minutesDegrees) });
+            $minuteHand.attr({
+                'transform': alterRotate(currentTransform, minutesDegrees)
+            });
             currentTransform = $bigMinuteHand.attr('transform');
             minutesDegrees = 60 - (newMinutes * 6);
-            $bigMinuteHand.attr({ 'transform': alterRotate(currentTransform, minutesDegrees) });
+            $bigMinuteHand.attr({
+                'transform': alterRotate(currentTransform, minutesDegrees)
+            });
         }
         if (newHours != currentHours) {
             currentHours = newHours;
             var hoursDegrees = 0 - (60 + ((newHours * 30) + Math.round(currentMinutes / 2)));
             currentTransform = $hourHand.attr('transform');
-            $hourHand.attr({ 'transform': alterRotate(currentTransform, hoursDegrees) });
+            $hourHand.attr({
+                'transform': alterRotate(currentTransform, hoursDegrees)
+            });
             currentTransform = $bigHourHand.attr('transform');
-            $bigHourHand.attr({ 'transform': alterRotate(currentTransform, hoursDegrees) });
+            $bigHourHand.attr({
+                'transform': alterRotate(currentTransform, hoursDegrees)
+            });
         }
     }
 

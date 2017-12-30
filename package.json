@@ -8,16 +8,19 @@
     "node": ">=9.3.x"
   },
   "scripts": {
-    "start": "gulp serve",
-    "build:sass": "gulp build --production --sass",
-    "build:less": "gulp build --production"
+    "start": "gulp serve --sass",
+    "start:less": "gulp serve",
+    "build:sass": "gulp build --production --sass && gulp gzip && gulp revision",
+    "build:less": "gulp build --production && gulp gzip && gulp revision"
   },
   "author": "IntuiTech",
   "dependencies": {
+    "bootstrap": "^4.0.0-beta.3",
     "gsap": "latest",
-    "jquery": "latest",
+    "jquery": "^3.2.1",
     "moment": "^2.20.1",
-    "pace-js": ">=1.0.2"
+    "pace-js": ">=1.0.2",
+    "popper.js": "^1.12.9"
   },
   "devDependencies": {
     "ajv": "^5.5.2",
@@ -25,9 +28,9 @@
     "autoprefixer": "^7.2.3",
     "babel-core": "latest",
     "babel-preset-env": "latest",
-    "browser-sync": "^2.21.0",
+    "browser-sync": "^2.23.1",
     "css-mqpacker": "latest",
-    "cssnano": "latest",
+    "cssnano": "^4.0.0-rc.2",
     "del": "latest",
     "graceful-fs": "^4.1.11",
     "gulp": "^3.9.1",

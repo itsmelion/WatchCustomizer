@@ -4,9 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="src/styles/style.css" media="screen" charset="utf-8">
+
+    <link rel=preload href="/main.css" as="style">
+    <link rel=preload href="/vendors.js" as="script"></link>
+    <link rel=preload href="/app.js" as="script"></link>
+    <link rel=prefetch href="/async.js" as="script"></link>
+    <link rel=prefetch href="/async.css" as="style"></link>
+    <link rel="stylesheet" href="/main.css" media="screen" charset="utf-8">
     <title>Watch Customizer</title>
 </head>
 
@@ -31,14 +35,14 @@
                                         <!-- LOOP METAL TYPE -->
                                         <div class="row">
                                             <?php for($i = 0; $i < 4; $i++)  { ?>
-                                                <div class="col-md-6 opt-metal-type" id="metal-type-<?php echo $i+1; ?>">
-                                                    <a title="">
-                                                        <div class="image-container">
-                                                            <img src="./src/images/daytona-<?php echo $i+1; ?>.png" alt="NIGHTFLIGHT" />
-                                                        </div>
-                                                        <p>TWO TONE</p>
-                                                    </a>
-                                                </div>
+                                            <div class="col-md-6 opt-metal-type" id="metal-type-<?php echo $i+1; ?>">
+                                                <a title="">
+                                                    <div class="image-container">
+                                                        <img src="/images/daytona-<?php echo $i+1; ?>.png" alt="NIGHTFLIGHT" />
+                                                    </div>
+                                                    <p>TWO TONE</p>
+                                                </a>
+                                            </div>
                                             <?php } ?>
                                         </div>
                                         <!-- END -->
@@ -50,7 +54,8 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingTwo">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo">
                                         <i class="more-less glyphicon glyphicon-plus"></i>
                                         Bezel Type
                                     </a>
@@ -62,14 +67,14 @@
                                         <!-- LOOP METAL TYPE -->
                                         <div class="row">
                                             <?php for($i = 0; $i < 5; $i++)  { ?>
-                                                <div class="col-md-6 opt-bezel-type" id="bezel-type-<?php echo $i+1; ?>">
-                                                    <a title="">
-                                                        <div class="image-container">
-                                                            <img src="./src/images/bezel-type-<?php echo $i+1; ?>.png" alt="NIGHTFLIGHT" />
-                                                        </div>
-                                                        <p>TWO TONE</p>
-                                                    </a>
-                                                </div>
+                                            <div class="col-md-6 opt-bezel-type" id="bezel-type-<?php echo $i+1; ?>">
+                                                <a title="">
+                                                    <div class="image-container">
+                                                        <img src="/images/bezel-type-<?php echo $i+1; ?>.png" alt="NIGHTFLIGHT" />
+                                                    </div>
+                                                    <p>TWO TONE</p>
+                                                </a>
+                                            </div>
                                             <?php } ?>
                                         </div>
                                         <!-- END -->
@@ -81,7 +86,8 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
                                         <i class="more-less glyphicon glyphicon-plus"></i>
                                         DIAMOND TYPE
                                     </a>
@@ -93,14 +99,14 @@
                                         <!-- LOOP METAL TYPE -->
                                         <div class="row">
                                             <?php for($i = 0; $i < 4; $i++)  { ?>
-                                                <div class="col-md-6 opt-metal-type" id="metal-type-<?php echo $i+1; ?>">
-                                                    <a title="">
-                                                        <div class="image-container">
-                                                            <img src="./src/images/daytona-<?php echo $i+1; ?>.png" alt="NIGHTFLIGHT" />
-                                                        </div>
-                                                        <p>TWO TONE</p>
-                                                    </a>
-                                                </div>
+                                            <div class="col-md-6 opt-metal-type" id="metal-type-<?php echo $i+1; ?>">
+                                                <a title="">
+                                                    <div class="image-container">
+                                                        <img src="/images/daytona-<?php echo $i+1; ?>.png" alt="NIGHTFLIGHT" />
+                                                    </div>
+                                                    <p>TWO TONE</p>
+                                                </a>
+                                            </div>
                                             <?php } ?>
                                         </div>
                                         <!-- END -->
@@ -109,7 +115,8 @@
                             </div>
                         </div>
 
-                    </div><!-- panel-group -->
+                    </div>
+                    <!-- panel-group -->
                 </div>
                 <div class="col-md-8  watch-box">
                     <div class="row">
@@ -117,8 +124,8 @@
                             <div class="watch-container">
                                 <img class="metal-type" src="src/images/daytona-1.png" alt="">
                                 <img class="bezel-type">
-                                <iframe class="dial" id="svgCustomiser" src="./src/images/dial.svg" width="212" height="212"></iframe>
-                                <!-- <img class="dial" src="./src/images/dial.svg" alt="Kiwi standing on oval"> -->
+                                <iframe class="dial" id="svgCustomiser" src="/images/dial.svg" width="212" height="212"></iframe>
+                                <!-- <img class="dial" src="/images/dial.svg" alt="Kiwi standing on oval"> -->
                                 <!-- <img class="dial" src="src/images/base_1_dial.png" alt=""> -->
                             </div>
                         </div>
@@ -129,11 +136,13 @@
             </div>
 
         </div>
+    </section>
 
-        <script src="src/vendors/jquery/jquery.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-        <script src="src/scripts/app.js"></script>
+    <link rel="stylesheet" async defer href="/async.css" lazyload="1" media="screen" charset="utf-8">
+    <script src="/vendors.js"></script>
+    <script src="/app.js"></script>
+    <script async defer src="/async.js"></script>
+
 </body>
 
 </html>

@@ -7,6 +7,8 @@ const URL = 'watch.customizer:7888';
 const vendors = [
     "./node_modules/pace-js/pace.min.js",
     "./node_modules/jquery/dist/jquery.min.js",
+    "./node_modules/popper.js/dist/umd/popper.min.js",
+    "./node_modules/bootstrap/dist/js/bootstrap.min.js",
     "./node_modules/moment/min/moment.min.js",
     "./node_modules/gsap/TweenLite.js",
     source + '/vendors/*.js'
@@ -56,15 +58,6 @@ let prefixes = [
     'last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'
     // isn't this too much? ie8 wtf???
 ]
-
-// Check witch css transpiler to use.
-let Less = () => {
-    if (argv.sass) {
-        return 'coreStyles';
-    } else {
-        return 'styles';
-    }
-};
 
 // Sass
 gulp.task('coreStyles', () => {
@@ -227,34 +220,43 @@ gulp.task('gzip', () => {
 // ############ Cleaning ###############
 gulp.task('clean', function () {
     return del([
-        dist + '/**',
         '**/.sass-cache',
         '**/.DS_Store',
         '**/Thumbs.db',
+        dist + '/**',
+        '!' + dist,
         '!' + dist + '/fonts',
-        '!' + dist + '/images'
+        '!' + dist + '/images',
+        '!' + dist + '/_templates',
+        '!' + dist + '/SVG',
+        '!' + dist + '/dummy',
+        '!' + dist + '/fonts/**/*',
+        '!' + dist + '/images/**/*',
+        '!' + dist + '/_templates/**/*',
+        '!' + dist + '/SVG/**/*',
+        '!' + dist + '/dummy/**/*'
     ]).then(paths => {
         console.log('Deleted files and folders:\n', paths.join('\n'));
     });
 });
 
-gulp.task('default', ['clean'], function () {
-    return gulp.start(
-        'vendors', 'scripts', 'async',
-        Less(), 'asyncStyles',
-        'html',
-        'fonts', 'images'
-    );
-});
-
+gulp.task('default', ['clean']);
 gulp.task('build', ['clean'], function () {
-    return gulp.start(
-        'vendors', 'scripts', 'async',
-        Less(), 'asyncStyles',
-        'html', 'revision',
-        'fonts', 'images',
-        'gzip'
-    );
+    if (argv.sass) {
+        return gulp.start(
+            'vendors', 'scripts', 'async',
+            'coreStyles', 'asyncStyles',
+            'html',
+            'fonts', 'images'
+        );
+    } else {
+        return gulp.start(
+            'vendors', 'scripts', 'async',
+            'styles', 'asyncStyles',
+            'html',
+            'fonts', 'images'
+        );
+    }
 });
 
 // Watch
