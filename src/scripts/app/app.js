@@ -1,27 +1,6 @@
 $(function () {
 
-    var isSafari = navigator.userAgent.indexOf('Safari') > -1;
 
-    var loadScript = function (src, loadCallback) {
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.src = src;
-        s.onload = loadCallback;
-        document.body.appendChild(s);
-    };
-
-    if (isSafari) {
-        loadScript('//cdnjs.cloudflare.com/ajax/libs/webshim/1.15.10/dev/polyfiller.js', function () {
-            webshims.setOptions('forms', {
-                overrideMessages: true,
-                replaceValidationUI: false
-            });
-            webshims.setOptions({
-                waitReady: true
-            });
-            webshims.polyfill();
-        });
-    }
 
     function toggleIcon(e) {
         $(e.target)
@@ -36,7 +15,7 @@ $(function () {
     let metalTypes = [];
     let bezelTypes = [];
 
-    $.getJSON("src/dummy/parts.json", function (obj) {
+    $.getJSON("/dummy/parts.json", function (obj) {
         $.each(obj, function (key, value) {
             if (key.toLowerCase() === "categories") {
                 obj[key].forEach(element => {
@@ -61,18 +40,15 @@ $(function () {
         }
     }
 
-    function fillOptions() {
 
-    }
-
-    $('.target').click
+    $('.target').click();
 
 
     // Selecting watch options
     $('.opt-metal-type').click(function (event) {
         var contentPanelId = jQuery(this).attr("id");
         var currentMetalType = metalTypes.filter(x => x.key === contentPanelId)[0];
-        $('.metal-type').attr('src', './src/images/' + currentMetalType.image)
+        $('.metal-type').attr('src', './images/' + currentMetalType.image);
         var url = "?metal-type=" + currentMetalType.description;
         // window.history.replaceState(null, null, url);
         if (history.pushState) {
@@ -85,7 +61,7 @@ $(function () {
     $('.opt-bezel-type').click(function (event) {
         var contentPanelId = jQuery(this).attr("id");
         var currentBezelType = bezelTypes.filter(x => x.key === contentPanelId)[0];
-        $('.bezel-type').attr('src', './src/images/' + currentBezelType.image)
+        $('.bezel-type').attr('src', './images/' + currentBezelType.image);
         var url = "?bezel-type=" + currentBezelType.description;
         // window.history.replaceState(null, null, url);
         if (history.pushState) {
@@ -100,8 +76,8 @@ $(function () {
     $(window).load(function () {
         $svg = $('#svgCustomiser').contents();
         // $('.customiserItemColourOptions ul li a').bind('click', handleColourChangeClick);
-        watches = new Object();
-        arrDesigns = new Array();
+        watches = {};
+        arrDesigns = [];
         isPOA = false;
 
         // watches.currentWatch = { indices: 'white', secondMarkers: 'metallic', minuteMarkers: 'metallic', dial: 'black', secondHand: 'lightGrey', logo: 'white', dialTextColour: 'white', dialText: '', caseText: '', caseTextDirection: 'horizontal', daytonaText: 'daytonaRed', chronoRings: 'metallic', chronoDials: 'black', chronoMarkers: 'black', chronoIndices: 'metallic', chronoHands: 'metallic' };
@@ -226,7 +202,7 @@ $(function () {
     }
 
     function alterRotate(currentValue, newValue) {
-        var arrValues = currentValue.replace(/\) /gi, '),').split('\,')
+        var arrValues = currentValue.replace(/\) /gi, '),').split('\,');
         for (var i = 0; i < arrValues.length; i++) {
             if (arrValues[i].search('rotate') != -1) {
                 arrValues[i] = 'rotate(' + newValue + ')';
@@ -236,27 +212,3 @@ $(function () {
     }
 
 });
-
-isMobile = {
-    Android: function () {
-        return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function () {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function () {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    iPad: function () {
-        return navigator.userAgent.match(/iPad/i);
-    },
-    Opera: function () {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function () {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function () {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    }
-};

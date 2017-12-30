@@ -20,7 +20,7 @@
     "jquery": "^3.2.1",
     "moment": "^2.20.1",
     "pace-js": ">=1.0.2",
-    "popper.js": "^1.12.9"
+    "popper.js": "^1.13.0"
   },
   "devDependencies": {
     "ajv": "^5.5.2",

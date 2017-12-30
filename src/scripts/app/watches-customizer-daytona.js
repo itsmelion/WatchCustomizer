@@ -1,8 +1,8 @@
 $(window).load(function () {
     $svg = $('#svgCustomiser').contents();
     $('.customiserItemColourOptions ul li a').bind('click', handleColourChangeClick);
-    watches = new Object();
-    arrDesigns = new Array();
+    watches = {};
+    arrDesigns = [];
     isPOA = false;
 
     watches.currentWatch = {
@@ -178,7 +178,7 @@ $(window).load(function () {
     $bigHourHand.attr({
         'transform': alterRotate(currentTransform, hoursDegrees)
     });
-    littleSecondsAnimation = document.createElementNS('http://www.w3.org/2000/svg', 'animateTransform');
+    littleSecondsAnimation = document.createElementNS('//www.w3.org/2000/svg', 'animateTransform');
     littleSecondsAnimation.setAttributeNS(null, 'attributeName', 'transform');
     littleSecondsAnimation.setAttributeNS(null, 'additive', 'sum');
     littleSecondsAnimation.setAttributeNS(null, 'accumulate', 'sum');
@@ -191,7 +191,7 @@ $(window).load(function () {
     littleSecondsAnimation.setAttributeNS(null, 'id', 'littleSecondsAnimation');
     $secondHand.append(littleSecondsAnimation);
     littleSecondsAnimation.beginElement();
-    bigSecondsAnimation = document.createElementNS('http://www.w3.org/2000/svg', 'animateTransform');
+    bigSecondsAnimation = document.createElementNS('//www.w3.org/2000/svg', 'animateTransform');
     bigSecondsAnimation.setAttributeNS(null, 'attributeName', 'transform');
     bigSecondsAnimation.setAttributeNS(null, 'additive', 'sum');
     bigSecondsAnimation.setAttributeNS(null, 'accumulate', 'sum');
@@ -249,7 +249,7 @@ function handleColourChangeClick(event) {
     var colour = stColours[classVal];
     var newColour = colour;
     var img = $('.currentColour img', topParent);
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + classVal + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + classVal + '_off.png');
 
     switch (changeArea) {
         case 'secondHand':
@@ -454,7 +454,7 @@ function populateWatch() {
     //INDICES
     colour = stColours[watches.currentWatch.indices];
     img = $('#luminescentIndices .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.indices + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.indices + '_off.png');
     $svg.find('#indices path,#indices_3_ path').attr({
         'fill': '#' + colour
     });
@@ -464,21 +464,21 @@ function populateWatch() {
     // DAYTONA TEXT
     colour = stColours[watches.currentWatch.daytonaText];
     img = $('#daytonaText .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.daytonaText + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.daytonaText + '_off.png');
     $svg.find('#daytonaText path,#daytonaText_2_ path').attr({
         'fill': '#' + colour
     });
     // second Markers
     colour = stColours[watches.currentWatch.secondMarkers];
     img = $('#secondMarkers .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.secondMarkers + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.secondMarkers + '_off.png');
     $svg.find('#secondMarkers_2_,#secondMarkers').attr({
         'fill': '#' + colour
     });
     // minute Markers
     colour = stColours[watches.currentWatch.minuteMarkers];
     img = $('#minuteMarkers .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.minuteMarkers + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.minuteMarkers + '_off.png');
     $svg.find('#fiveMinuteMarkers path,#fiveMinuteMarkers_1_ path').attr({
         'fill': '#' + colour
     });
@@ -490,21 +490,21 @@ function populateWatch() {
     // dial
     colour = stColours[watches.currentWatch.dial];
     img = $('#dial .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.dial + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.dial + '_off.png');
     $svg.find('#dial_3_,#dial').attr({
         'fill': '#' + colour
     });
     // second hand
     colour = stColours[watches.currentWatch.secondHand];
     img = $('#secondHand .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.secondHand + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.secondHand + '_off.png');
     $svg.find('#secondHand path').first().attr({
         'fill': '#' + colour
     });
     // logo
     colour = stColours[watches.currentWatch.logo];
     img = $('#logo .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.logo + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.logo + '_off.png');
     $svg.find('#logo path,#logo_6_ path').attr({
         'fill': '#' + colour
     });
@@ -516,35 +516,35 @@ function populateWatch() {
     // chronoRings
     colour = stColours[watches.currentWatch.chronoRings];
     img = $('#chronoRings .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.chronoRings + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.chronoRings + '_off.png');
     $svg.find('#chronoRings path,#chronoRings_1_ path').attr({
         'fill': '#' + colour
     });
     // chronoDials
     colour = stColours[watches.currentWatch.chronoDials];
     img = $('#chronoDials .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.chronoDials + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.chronoDials + '_off.png');
     $svg.find('#chronoDials circle,#chronoDials_1_ circle').attr({
         'fill': '#' + colour
     });
     // chronoHands
     colour = stColours[watches.currentWatch.chronoHands];
     img = $('#chronoHands .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.chronoHands + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.chronoHands + '_off.png');
     $svg.find('#chronoHands path,#chronoHands_1_ path').attr({
         'fill': '#' + colour
     });
     // chronoMarkers
     colour = stColours[watches.currentWatch.chronoMarkers];
     img = $('#chronoMarkers .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.chronoMarkers + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.chronoMarkers + '_off.png');
     $svg.find('#chronoMarkers,#chronoMarkers_2_').attr({
         'fill': '#' + colour
     });
     // dial text
     colour = stColours[watches.currentWatch.dialTextColour];
     img = $('#dialText .currentColour img');
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.dialTextColour + '_off.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + watches.currentWatch.dialTextColour + '_off.png');
     $svg.find('#dialText_4_,#dialText_1_').parent().attr({
         'fill': '#' + colour
     });
@@ -653,8 +653,8 @@ function postToFacebook() {
                     type: "POST",
                     url: "https://graph.facebook.com/me/photos",
                     data: {
-                        message: "I just designed my own Daytona from Bamford Watch Department - http://www.bamfordwatchdepartment.com",
-                        url: 'http://www.bamfordwatchdepartment.com/_temp/' + globals.fbSharer.useImg,
+                        message: "I just designed my own Daytona from Bamford Watch Department - //www.bamfordwatchdepartment.com",
+                        url: '//www.bamfordwatchdepartment.com/_temp/' + globals.fbSharer.useImg,
                         access_token: response.authResponse.accessToken,
                         format: "json"
                     },
@@ -694,10 +694,10 @@ $(document).ready(function () {
     };
     setupTemplatesSlider();
     setupFacebookSharer();
-    images.leftArrow.on.src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/on_arrowLeft2.png';
-    images.leftArrow.off.src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/off_arrowLeft2.png';
-    images.rightArrow.on.src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/on_arrowRight2.gif';
-    images.rightArrow.off.src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/off_arrowRight2.gif';
+    images.leftArrow.on.src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/on_arrowLeft2.png';
+    images.leftArrow.off.src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/off_arrowLeft2.png';
+    images.rightArrow.on.src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/on_arrowRight2.gif';
+    images.rightArrow.off.src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/off_arrowRight2.gif';
     $('.arrows').hover(function () {
         var dir = $('img', this).attr('id');
         document.getElementById(dir).src = images[dir].on.src;

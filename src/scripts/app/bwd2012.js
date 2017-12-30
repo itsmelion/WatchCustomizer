@@ -1,153 +1,37 @@
-var BrowserDetect = {
-	init: function () {
-		this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
-		this.version = this.searchVersion(navigator.userAgent) ||
-			this.searchVersion(navigator.appVersion) ||
-			"an unknown version";
-		this.OS = this.searchString(this.dataOS) || "an unknown OS";
-	},
-	searchString: function (data) {
-		for (var i = 0; i < data.length; i++) {
-			var dataString = data[i].string;
-			var dataProp = data[i].prop;
-			this.versionSearchString = data[i].versionSearch || data[i].identity;
-			if (dataString) {
-				if (dataString.indexOf(data[i].subString) != -1)
-					return data[i].identity;
-			} else if (dataProp)
-				return data[i].identity;
-		}
-	},
-	searchVersion: function (dataString) {
-		var index = dataString.indexOf(this.versionSearchString);
-		if (index == -1) return;
-		return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
-	},
-	dataBrowser: [{
-			string: navigator.userAgent,
-			subString: "Chrome",
-			identity: "Chrome"
-		},
-		{
-			string: navigator.userAgent,
-			subString: "OmniWeb",
-			versionSearch: "OmniWeb/",
-			identity: "OmniWeb"
-		},
-		{
-			string: navigator.vendor,
-			subString: "Apple",
-			identity: "Safari",
-			versionSearch: "Version"
-		},
-		{
-			prop: window.opera,
-			identity: "Opera",
-			versionSearch: "Version"
-		},
-		{
-			string: navigator.vendor,
-			subString: "iCab",
-			identity: "iCab"
-		},
-		{
-			string: navigator.vendor,
-			subString: "KDE",
-			identity: "Konqueror"
-		},
-		{
-			string: navigator.userAgent,
-			subString: "Firefox",
-			identity: "Firefox"
-		},
-		{
-			string: navigator.vendor,
-			subString: "Camino",
-			identity: "Camino"
-		},
-		{
-			string: navigator.userAgent,
-			subString: "Netscape",
-			identity: "Netscape"
-		},
-		{
-			string: navigator.userAgent,
-			subString: "MSIE",
-			identity: "Explorer",
-			versionSearch: "MSIE"
-		},
-		{
-			string: navigator.userAgent,
-			subString: "Gecko",
-			identity: "Mozilla",
-			versionSearch: "rv"
-		},
-		{
-			string: navigator.userAgent,
-			subString: "Mozilla",
-			identity: "Netscape",
-			versionSearch: "Mozilla"
-		}
-	],
-	dataOS: [{
-			string: navigator.platform,
-			subString: "Win",
-			identity: "Windows"
-		},
-		{
-			string: navigator.platform,
-			subString: "Mac",
-			identity: "Mac"
-		},
-		{
-			string: navigator.userAgent,
-			subString: "iPhone",
-			identity: "iPhone/iPod"
-		},
-		{
-			string: navigator.platform,
-			subString: "Linux",
-			identity: "Linux"
-		}
-	]
-
-};
-BrowserDetect.init();
-
 var globals = {
 	topTab: {
-		on: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/bwd_topGrab_over.gif',
-		off: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/bwd_topGrab.gif'
+		on: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/bwd_topGrab_over.gif',
+		off: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/bwd_topGrab.gif'
 	},
 	arrowLeft: {
-		on: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-left-on.png',
-		off: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-left.png'
+		on: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-left-on.png',
+		off: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-left.png'
 	},
 	arrowRight: {
-		on: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-right-on.png',
-		off: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-right.png'
+		on: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-right-on.png',
+		off: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-right.png'
 	},
 	bigArrowLeft: {
-		on: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-left630-on.gif',
-		off: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-left630.gif'
+		on: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-left630-on.gif',
+		off: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-left630.gif'
 	},
 	bigArrowRight: {
-		on: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-right630-on.gif',
-		off: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-right630.gif'
+		on: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-right630-on.gif',
+		off: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/scroll-right630.gif'
 	},
 	twitter: {
-		on: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/icon_twitter-on.png',
-		off: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/icon_twitter.png'
+		on: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/icon_twitter-on.png',
+		off: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/icon_twitter.png'
 	},
 	facebook: {
-		on: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/icon_Facebook-on.png',
-		off: new Image().src = 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/icon_Facebook-2.png'
+		on: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/icon_Facebook-on.png',
+		off: new Image().src = '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/icon_Facebook-2.png'
 	},
 	page: {
 		pageLink: encodeURIComponent(location.href),
 		pageTitle: encodeURIComponent(document.title),
-		twitterLink: 'http://twitter.com/home?status=' + encodeURIComponent(document.title) + encodeURIComponent(': ') + encodeURIComponent(location.href),
-		facebookLink: 'http://www.facebook.com/sharer.php?u=' + encodeURIComponent(location.href) + '&t=' + encodeURIComponent(document.title)
+		twitterLink: '//twitter.com/home?status=' + encodeURIComponent(document.title) + encodeURIComponent(': ') + encodeURIComponent(location.href),
+		facebookLink: '//www.facebook.com/sharer.php?u=' + encodeURIComponent(location.href) + '&t=' + encodeURIComponent(document.title)
 	}
 };
 
@@ -231,7 +115,7 @@ _gaq.push(['_trackPageview']);
 	var ga = document.createElement('script');
 	ga.type = 'text/javascript';
 	ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : '//www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0];
 	s.parentNode.insertBefore(ga, s);
 })();
@@ -560,7 +444,7 @@ function addProduct(event) {
 		product: id,
 		colour: colourID
 	}, function (data) {
-		/*var url = 'http://'+location.hostname+location.pathname;
+		/*var url = '//'+location.hostname+location.pathname;
 		if (location.search.length) {
 			var urlvars = location.search.split('?')[1].split('&');
 			var newurlvars = new Array();
@@ -969,7 +853,7 @@ $(document).ready(function () {
 });
 
 /* Modernizr 2.6.1 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-fontface-backgroundsize-borderimage-borderradius-boxshadow-flexbox-flexbox_legacy-hsla-multiplebgs-opacity-rgba-textshadow-cssanimations-csscolumns-generatedcontent-canvas-canvastext-draganddrop-hashchange-history-audio-video-indexeddb-input-inputtypes-localstorage-sessionstorage-inlinesvg-svg-svgclippaths-touch-shiv-cssclasses-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-forms_placeholder-json-svg_filters-load
+ * Build: //modernizr.com/download/#-fontface-backgroundsize-borderimage-borderradius-boxshadow-flexbox-flexbox_legacy-hsla-multiplebgs-opacity-rgba-textshadow-cssanimations-csscolumns-generatedcontent-canvas-canvastext-draganddrop-hashchange-history-audio-video-indexeddb-input-inputtypes-localstorage-sessionstorage-inlinesvg-svg-svgclippaths-touch-shiv-cssclasses-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-forms_placeholder-json-svg_filters-load
  */
 ;
 window.Modernizr = function (a, b, c) {
@@ -1035,7 +919,7 @@ window.Modernizr = function (a, b, c) {
 			p = o.split(" "),
 			q = o.toLowerCase().split(" "),
 			r = {
-				svg: "http://www.w3.org/2000/svg"
+				svg: "//www.w3.org/2000/svg"
 			},
 			s = {},
 			t = {},
@@ -1133,7 +1017,7 @@ window.Modernizr = function (a, b, c) {
 			return I("columnCount")
 		}, s.fontface = function () {
 			var a;
-			return y('@font-face {font-family:"font";src:url("https:///")}', function (c, d) {
+			return y('@font-face {font-family:"font";src:url("https://")}', function (c, d) {
 				var e = b.getElementById("smodernizr"),
 					f = e.sheet || e.styleSheet,
 					g = f ? f.cssRules && f.cssRules[0] ? f.cssRules[0].cssText : f.cssText || "" : "";

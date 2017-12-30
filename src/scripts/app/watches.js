@@ -3268,7 +3268,7 @@ function rolloverPalette(event) {
     if (event.type == 'mouseenter') {
         action = 'on';
     }
-    img.attr('src', 'http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + colour + '_' + action + '.png');
+    img.attr('src', '//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/colourButtons/' + colour + '_' + action + '.png');
 }
 
 function expandPalette(event) {
@@ -3297,10 +3297,10 @@ function expandPalette(event) {
             });
             $(this).slideUp('fast');
             otherSection = $(this).data('section');
-            $('#'+otherSection+'Title img').attr('src','http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/arrow_closed.png');
+            $('#'+otherSection+'Title img').attr('src','//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/arrow_closed.png');
         });
         target.slideDown('fast');
-        $('img',trigger).attr('src','http://eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/arrow_open.png');
+        $('img',trigger).attr('src','//eugeniucozac.com/luxurywatches/wp-content/themes/theluxury-v1-05/customizer/images/arrow_open.png');
 
     }
 } */
