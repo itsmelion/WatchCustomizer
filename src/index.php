@@ -28,7 +28,7 @@
                 <button ng-click=getPulseira(pulseira.valor)>{{pulseira.nome}}</button>
             </article>
             <pre id=debug></pre>
-            <pre><code>{{categories | json}}</code></pre>
+            <pre><code>{{baseWatch | json}}</code></pre>
         </section>
     </main>
 

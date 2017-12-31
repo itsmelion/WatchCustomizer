@@ -1,0 +1,16 @@
+{
+    "pulseira": {
+        "couro": {
+            "nome": "couro",
+            "valor": 200
+        },
+        "metal": {
+            "nome": "metal",
+            "valor": 300
+        }
+    },
+    "face": {
+        "couro": 100,
+        "metal": 50
+    }
+}

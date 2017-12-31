@@ -2,46 +2,39 @@ const dependencies = ['ngSanitize', 'ngAnimate'];
 
 const app = angular.module('WatchCustomizer', dependencies)
 
-    .constant('API_URL', '/api/v1/')
-    .run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
-        $rootScope.baseWatch = {
-            'pulseira': {
-                'couro': {
-                    'nome': 'couro',
-                    'valor': 200
-                },
-                'metal': {
-                    'nome': 'metal',
-                    'valor': 300
-                },
+    .constant('models', './dummy/')
 
+    .run(['$rootScope', '$location', '$window', '$http', 'models', function ($rootScope, $location, $window, $http, models) {
+
+        $http.defaults.cache = true;
+
+        $http.get(models + 'parts.json').then(
+            function success(data) {
+                $rootScope.categories = data.data;
             },
-            'face': {
-                'couro': 100,
-                'metal': 50
+            function error(error) {
+                console.warn('Could not get "parts.json"\n', error);
             }
-        };
+        );
+
+        $http.get(models + 'watch.json').then(
+            function success(data) {
+                $rootScope.baseWatch = data.data;
+            },
+            function error(error) {
+                console.warn('Could not get "watch.model.json"\n', error);
+            }
+        );
+
     }])
 
     .controller('Watch', ['$rootScope', '$scope', '$http', function Watch($rootScope, $scope, $http) {
 
         $scope.watch = {};
-        console.log($scope.baseWatch);
-
-        $http.get('./dummy/parts.json').then(
-            function success(data) {
-                $scope.categories = data.data;
-            },
-            function error(error) {
-                console.warn('Could not get "parts.json"\n', error);
-            }
-        )
 
         $scope.getPulseira = function getPulseira(pulseira) {
 
             $scope.watch.pulseira = pulseira;
-            console.log(pulseira);
-            console.log($scope.watch);
 
             document.getElementById('debug').innerHTML = pulseira;
         };
