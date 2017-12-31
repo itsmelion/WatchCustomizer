@@ -7,6 +7,9 @@ const URL = 'watch.customizer:7888';
 const vendors = [
     "./node_modules/pace-js/pace.min.js",
     "./node_modules/jquery/dist/jquery.min.js",
+    "./node_modules/angular/angular.js",
+    "./node_modules/angular-animate/angular-animate.js",
+    "./node_modules/angular-sanitize/angular-sanitize.js",
     "./node_modules/popper.js/dist/umd/popper.min.js",
     "./node_modules/bootstrap/dist/js/bootstrap.min.js",
     "./node_modules/moment/min/moment.min.js",
@@ -57,7 +60,7 @@ const del = require('del'),
 let prefixes = [
     'last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'
     // isn't this too much? ie8 wtf???
-]
+];
 
 // Sass
 gulp.task('coreStyles', () => {
@@ -172,7 +175,6 @@ gulp.task('images', () => {
         .pipe(gulp.dest(dist + '/images'));
 });
 
-// ############ Images ###############
 gulp.task('fonts', () => {
     return gulp.src(source + '/fonts/**/*')
         .pipe(newer(dist + '/fonts'))
@@ -185,7 +187,7 @@ gulp.task("rev", function () {
         .pipe(rev())
         .pipe(gulp.dest(dist))
         .pipe(rev.manifest())
-        .pipe(gulp.dest(dist))
+        .pipe(gulp.dest(dist));
 });
 gulp.task("revision", ["rev"], function () {
     var manifest = gulp.src(dist + "/rev-manifest.json");

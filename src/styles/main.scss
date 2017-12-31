@@ -1,3 +1,53 @@
+@charset "UTF-8";
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+    display: none !important;
+}
+
+ng\:form {
+    display: block;
+}
+
+.ng-animate-shim {
+    visibility: hidden;
+}
+
+.ng-anchor {
+    position: absolute;
+}
+
 @import "vars";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "scss/content";
+#WatchFace {
+    position: absolute;
+    width: 300px;
+    margin: 0 auto;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    #bigSecondHand,
+    #bigMinuteHand,
+    #bigHourHand {
+        position: relative;
+        z-index: 1000;
+        transform-origin: center center;
+    }
+}
+
+pre {
+    padding: 1rem;
+    background-color: #f5f5f5;
+    color: #333;
+    code {
+        line-height: 1.4;
+        padding: 1rem;
+    }
+}

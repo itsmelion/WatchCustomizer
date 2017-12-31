@@ -1,0 +1,31 @@
+/*
+  Async CSS is for Performance,
+  preventing Styles to prevent page from loading.
+
+  Its good for trivial style
+*/
+
+@import '_vars';
+html,
+body {
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    max-width: 100vw;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-rendering: optimizeLegibility;
+}
+
+::selection {
+    color: white;
+    background-color: $cyan;
+    text-shadow: none;
+}
+
+ ::-moz-selection {
+    color: white;
+    background-color: $cyan;
+    text-shadow: none;
+}

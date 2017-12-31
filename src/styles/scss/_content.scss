@@ -2,11 +2,7 @@ html,
 body {
     height: 100%;
     background-color: #111;
-}
-
-::selection {
-    color: #fff;
-    background-color: #94C3BB;
+    position: relative;
 }
 
 section {
