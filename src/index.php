@@ -24,10 +24,11 @@
             </div>
 
             <br>
-            <article ng-repeat="pulseira in baseWatch.pulseira">
-                <button ng-click=getPulseira(pulseira.valor)>{{pulseira.nome}}</button>
+            <article ng-repeat="case in baseWatch.case">
+                <button ng-click=getPulseira(case.imagem)>{{case.nome}}<br><img height=100px width=auto ng-src="/images/{{case.imagem}}" /></button>
             </article>
             <pre id=debug></pre>
+            <img height=100px width=auto ng-src="/images/{{watch.relogio}}" />
             <pre><code>{{baseWatch | json}}</code></pre>
         </section>
     </main>

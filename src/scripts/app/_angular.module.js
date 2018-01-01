@@ -32,10 +32,10 @@ const app = angular.module('WatchCustomizer', dependencies)
 
         $scope.watch = {};
 
-        $scope.getPulseira = function getPulseira(pulseira) {
+        $scope.getPulseira = function getPulseira(relogio) {
 
-            $scope.watch.pulseira = pulseira;
+            $scope.watch.relogio = relogio;
 
-            document.getElementById('debug').innerHTML = pulseira;
+            document.getElementById('debug').innerHTML = $scope.watch.relogio;
         };
     }]);

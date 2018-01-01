@@ -1,16 +1,43 @@
 {
     "pulseira": {
         "couro": {
-            "nome": "couro",
-            "valor": 200
+            "imagem": "daytona-4.png",
+            "nome": "Golden Gold 24K",
+            "valor": 4000
         },
         "metal": {
-            "nome": "metal",
-            "valor": 300
+            "imagem": "daytona-4.png",
+            "nome": "Golden Gold 24K",
+            "valor": 4000
         }
     },
     "face": {
-        "couro": 100,
-        "metal": 50
+        "resina": {
+            "imagem": "daytona-4.png",
+            "nome": "Golden Gold 24K",
+            "valor": 1000
+        }
+    },
+    "case": {
+        "gold": {
+            "imagem": "daytona-1.png",
+            "nome": "Golden Gold 24K",
+            "valor": 1000
+        },
+        "silve": {
+            "imagem": "daytona-2.png",
+            "nome": "Silver Moon",
+            "valor": 2000
+        },
+        "black": {
+            "imagem": "daytona-3.png",
+            "nome": "Black metal",
+            "valor": 3000
+        },
+        "wood": {
+            "imagem": "daytona-4.png",
+            "nome": "Wood finishings",
+            "valor": 4000
+        }
     }
 }
