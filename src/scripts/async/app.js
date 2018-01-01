@@ -25,9 +25,9 @@ $(function () {
             minutes = (date.getMinutes() * MINUTE) + seconds,
             hours = (date.getHours() * HOUR) + minutes;
 
-        document.getElementById('bigSecondHand').setAttribute('style', 'transform:rotate(' + 360 * (seconds / MINUTE) + 'deg)');
+        document.getElementById('bigSecondHand').setAttribute('style', 'transform:rotate(' + (360 * (seconds / MINUTE) + 90) + 'deg)');
         document.getElementById('bigMinuteHand').setAttribute('style', 'transform:rotate(' + 360 * (minutes / HOUR) + 'deg)');
-        document.getElementById('bigHourHand').setAttribute('style', 'transform:rotate(' + 360 * (hours / (12 * HOUR)) + 'deg)');
+        document.getElementById('bigHourHand').setAttribute('style', 'transform:rotate(' + (360 * (hours / (12 * HOUR)) + 180) + 'deg)');
     };
     setTime();
     var interval = setInterval(setTime, 1000);
