@@ -17,19 +17,34 @@
 
 <body>
 
-    <main ng-app=WatchCustomizer>
+    <main ng-cloak ng-app=WatchCustomizer class=layout-row>
+        <aside class=layout-row-between-center>
+
+            <ul class="layout-row-start list" ng-repeat="items in [1,2,3,4]">
+                <li>
+                    <?php include './images/icon.svg'; ?>
+                    <small>Case</small>
+                </li>
+            </ul>
+
+            <article ng-repeat="case in baseWatch.case">
+                <button data-watch=pulseira ng-click=getPulseira(case.imagem)>{{case.nome}}
+                <img height=100px width=auto ng-src="/images/{{case.imagem}}" /></button>
+            </article>
+
+        </aside>
+
         <section ng-controller=Watch>
             <div id=view>
                 <?php include './images/dial.svg'; ?>
             </div>
 
-            <br>
-            <article ng-repeat="case in baseWatch.case">
-                <button ng-click=getPulseira(case.imagem)>{{case.nome}}<br><img height=100px width=auto ng-src="/images/{{case.imagem}}" /></button>
-            </article>
             <pre id=debug></pre>
+
             <img height=100px width=auto ng-src="/images/{{watch.relogio}}" />
+
             <pre><code>{{baseWatch | json}}</code></pre>
+
         </section>
     </main>
 
