@@ -44,6 +44,7 @@
 
             </aside>
 
+                <button ng-click=share(watch)>share</button>
             <div id=view>
                 <pre>{{watch | json}}</pre>
                 <img height=100px width=auto ng-src="/images/{{watch.case.image}}" />
