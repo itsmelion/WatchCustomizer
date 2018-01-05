@@ -1,43 +1,75 @@
 {
     "pulseira": {
-        "couro": {
-            "imagem": "daytona-4.png",
-            "nome": "Golden Gold 24K",
-            "valor": 4000
-        },
-        "metal": {
-            "imagem": "daytona-4.png",
-            "nome": "Golden Gold 24K",
-            "valor": 4000
+        "name": "pulseira",
+        "options": {
+            "couro": {
+                "image": "daytona-4.png",
+                "name": "Golden Gold 24K",
+                "value": 4000
+            },
+            "metal": {
+                "image": "daytona-4.png",
+                "name": "Golden Gold 24K",
+                "value": 4000
+            }
         }
     },
+
     "face": {
-        "resina": {
-            "imagem": "daytona-4.png",
-            "nome": "Golden Gold 24K",
-            "valor": 1000
+        "name": "face",
+        "options": {
+            "resina": {
+                "image": "daytona-4.png",
+                "name": "Golden Gold 24K",
+                "value": 1000
+            }
         }
     },
+
+    "bezel": {
+        "name": "bezel",
+        "options": {
+            "resina": {
+                "image": "bezel-type-3.png",
+                "name": "Golden Gold 24K",
+                "value": 1000
+            },
+            "diamin": {
+                "image": "bezel-type-2.png",
+                "name": "Golden Gold 24K",
+                "value": 1000
+            },
+            "2": {
+                "image": "bezel-type-1.png",
+                "name": "Golden Gold 24K",
+                "value": 1000
+            }
+        }
+    },
+
     "case": {
-        "gold": {
-            "imagem": "daytona-1.png",
-            "nome": "Golden Gold 24K",
-            "valor": 1000
-        },
-        "silve": {
-            "imagem": "daytona-2.png",
-            "nome": "Silver Moon",
-            "valor": 2000
-        },
-        "black": {
-            "imagem": "daytona-3.png",
-            "nome": "Black metal",
-            "valor": 3000
-        },
-        "wood": {
-            "imagem": "daytona-4.png",
-            "nome": "Wood finishings",
-            "valor": 4000
+        "name": "case",
+        "options": {
+            "gold": {
+                "image": "daytona-2.png",
+                "name": "Golden Gold 24K",
+                "value": 1000
+            },
+            "silve": {
+                "image": "daytona-4.png",
+                "name": "Silver Moon",
+                "value": 2000
+            },
+            "black": {
+                "image": "daytona-3.png",
+                "name": "Black metal",
+                "value": 3000
+            },
+            "wood": {
+                "image": "daytona-1.png",
+                "name": "Wood finishings",
+                "value": 4000
+            }
         }
     }
 }

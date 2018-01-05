@@ -17,34 +17,39 @@
 
 <body>
 
-    <main ng-cloak ng-app=WatchCustomizer class=layout-row>
-        <aside class=layout-row-between-center>
+    <main ng-cloak ng-app=WatchCustomizer >
 
-            <ul class="layout-row-start list" ng-repeat="items in [1,2,3,4]">
-                <li>
-                    <?php include './images/icon.svg'; ?>
-                    <small>Case</small>
-                </li>
-            </ul>
+        <section ng-controller=Watch class=layout-row>
 
-            <article ng-repeat="case in baseWatch.case">
-                <button data-watch=pulseira ng-click=getPulseira(case.imagem)>{{case.nome}}
-                <img height=100px width=auto ng-src="/images/{{case.imagem}}" /></button>
-            </article>
+            <aside class=layout-column-between-center>
 
-        </aside>
+                <ul class="layout-row-start list">
+                    <li ng-repeat="items in baseWatch">
+                        <?php include './images/icon.svg'; ?>
+                        <small>{{items.name}}</small>
+                    </li>
+                </ul>
 
-        <section ng-controller=Watch>
+                <div class=layout-row>
+                <article ng-repeat="case in baseWatch.case.options">
+                    <button data-watch ng-click="select('case',case)">{{case.name}}
+                    <img height=80px width=auto ng-src="/images/{{case.image}}" /></button>
+                </article>
+                <article ng-repeat="bezel in baseWatch.bezel.options">
+                    <button data-watch ng-click="select('bezel',bezel)">{{bezel.name}}
+                    <img height=80px width=auto ng-src="/images/{{bezel.image}}" /></button>
+                </article>
+                </div>
+
+
+            </aside>
+
             <div id=view>
+                <pre>{{watch | json}}</pre>
+                <img height=100px width=auto ng-src="/images/{{watch.case.image}}" />
+                <img height=100px width=auto ng-src="/images/{{watch.bezel.image}}" />
                 <?php include './images/dial.svg'; ?>
             </div>
-
-            <pre id=debug></pre>
-
-            <img height=100px width=auto ng-src="/images/{{watch.relogio}}" />
-
-            <pre><code>{{baseWatch | json}}</code></pre>
-
         </section>
     </main>
 
