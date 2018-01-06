@@ -15,18 +15,17 @@
     <?php include './meta.php'; ?>
 </head>
 
-<body>
+<body ng-app=WatchCustomizer ng-controller=Watch>
 
-    <main ng-cloak ng-app=WatchCustomizer >
+    <main ng-cloak>
 
-        <section ng-controller=Watch class=layout-row>
+        <!-- Menus and Watch -->
+        <section class=layout-row>
 
             <?php include './menu.php'; ?>
 
-            <button ng-click=share(watch)>share</button>
 
             <div id=view>
-                <pre>{{watch | json}}</pre>
                 <img height=100px width=auto ng-src="/images/{{watch.case.image}}" />
                 <img height=100px width=auto ng-src="/images/{{watch.bezel.image}}" />
                 <img height=100px width=auto ng-src="/images/{{watch.dial.image}}" />
@@ -36,7 +35,13 @@
             </div>
 
         </section>
+
+        <!-- Share section and Price. -->
+        <nav>
+            <button ng-click=share(watch)>share</button>
+        </nav>
     </main>
+    <pre>{{watch | json}}</pre>
 
     <link rel="stylesheet" async defer href="/async.css" lazyload="1" media="screen" charset="utf-8">
     <script src="/vendors.js"></script>
