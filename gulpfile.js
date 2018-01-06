@@ -198,6 +198,7 @@ gulp.task("revision", ["rev"], function () {
         }))
         .pipe(gulp.dest(dist));
 });
+
 gulp.task('html', () => {
     return gulp.src(source + '/**/*.{html,php}')
         .pipe(htmlmin({
@@ -216,6 +217,23 @@ gulp.task('html', () => {
 gulp.task('gzip', () => {
     return gulp.src([dist + '/*.js', dist + '/*.css'])
         .pipe(gzip())
+        .pipe(gulp.dest(dist));
+});
+
+// ############ Moving specific folders to ./dist ###############
+gulp.task('move', ['clean'], () => {
+    return gulp.src([
+            '/_templates/**/*',
+            '/SVG/**/*',
+            '/dummy/**/*'
+        ], {
+            base: './dist'
+        })
+        .pipe(newer([
+            '/_templates/**/*',
+            '/SVG/**/*',
+            '/dummy/**/*'
+        ]))
         .pipe(gulp.dest(dist));
 });
 
@@ -249,20 +267,20 @@ gulp.task('build', ['clean'], function () {
             'vendors', 'scripts', 'async',
             'coreStyles', 'asyncStyles',
             'html',
-            'fonts', 'images'
+            'fonts', 'images', 'move'
         );
     } else {
         return gulp.start(
             'vendors', 'scripts', 'async',
             'styles', 'asyncStyles',
             'html',
-            'fonts', 'images'
+            'fonts', 'images', 'move'
         );
     }
 });
 
 // Watch
-gulp.task('watch', function () {
+gulp.task('watch', ['build'], function () {
     // Files that requires build tasks
     gulp.watch(source + '/styles/**/*.less', ['styles']);
     gulp.watch(source + '/styles/**/*.scss', ['coreStyles', 'asyncStyles']);

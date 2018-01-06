@@ -1,6 +1,6 @@
 {
-    "pulseira": {
-        "name": "pulseira",
+    "hands": {
+        "name": "hands",
         "options": {
             "couro": {
                 "image": "daytona-4.png",
@@ -15,8 +15,8 @@
         }
     },
 
-    "face": {
-        "name": "face",
+    "dial": {
+        "name": "dial",
         "options": {
             "resina": {
                 "image": "daytona-4.png",

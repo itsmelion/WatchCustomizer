@@ -47,9 +47,13 @@ const app = angular.module('WatchCustomizer', dependencies)
 
         $scope.select = function (name, properties) {
             $scope.watch[name] = properties;
-            console.log();
         };
 
+        $scope.switch = function (name) {
+            $scope.selected = name;
+            console.log($scope.selected);
+
+        };
 
         // receives property name, and object name
         $scope.share = function share(key, value) {

@@ -21,36 +21,20 @@
 
         <section ng-controller=Watch class=layout-row>
 
-            <aside class=layout-column-between-center>
+            <?php include './menu.php'; ?>
 
-                <ul class="layout-row-start list">
-                    <li ng-repeat="items in baseWatch">
-                        <?php include './images/icon.svg'; ?>
-                        <small>{{items.name}}</small>
-                    </li>
-                </ul>
+            <button ng-click=share(watch)>share</button>
 
-                <div class=layout-row>
-                <article ng-repeat="case in baseWatch.case.options">
-                    <button data-watch ng-click="select('case',case)">{{case.name}}
-                    <img height=80px width=auto ng-src="/images/{{case.image}}" /></button>
-                </article>
-                <article ng-repeat="bezel in baseWatch.bezel.options">
-                    <button data-watch ng-click="select('bezel',bezel)">{{bezel.name}}
-                    <img height=80px width=auto ng-src="/images/{{bezel.image}}" /></button>
-                </article>
-                </div>
-
-
-            </aside>
-
-                <button ng-click=share(watch)>share</button>
             <div id=view>
                 <pre>{{watch | json}}</pre>
                 <img height=100px width=auto ng-src="/images/{{watch.case.image}}" />
                 <img height=100px width=auto ng-src="/images/{{watch.bezel.image}}" />
+                <img height=100px width=auto ng-src="/images/{{watch.dial.image}}" />
+                <img height=100px width=auto ng-src="/images/{{watch.hands.image}}" />
+                <img height=100px width=auto ng-src="/images/{{watch.strap.image}}" />
                 <?php include './images/dial.svg'; ?>
             </div>
+
         </section>
     </main>
 
