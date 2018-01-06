@@ -17,6 +17,40 @@ pre {
     }
 }
 
+aside {
+    background-color: #252525;
+    width: 500px;
+    position: relative;
+    ul {
+        width: 100%;
+    }
+    >div {
+        position: relative;
+        justify-content: center;
+        align-items: stretch;
+        opacity: 1;
+        &.ng-animate {
+            transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.25s;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        &.ng-leave &.ng-leave-active {
+            opacity: 1;
+        }
+        &.ng-enter {
+            background-color: rebeccapurple;
+            opacity: 0;
+        }
+        &.ng-enter-active {
+            background-color: red;
+            opacity: 1;
+        }
+    }
+}
+
 #view {
     position: relative;
     background-color: #151515;

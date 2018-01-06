@@ -20,7 +20,7 @@
     <main ng-cloak>
 
         <!-- Menus and Watch -->
-        <section class=layout-row>
+        <section class=layout-row-nowrap>
 
             <?php include './menu.php'; ?>
 

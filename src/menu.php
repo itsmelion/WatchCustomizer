@@ -1,6 +1,6 @@
 <aside class=layout-column-start ng-switch on=selected>
 
-    <ul class="layout-row-start list">
+    <ul class="layout-row-center list">
         <li ng-repeat="item in baseWatch" ng-click="switch(item.name)">
             <?php include './images/icon.svg'; ?>
             <small>{{item.name}}</small>
