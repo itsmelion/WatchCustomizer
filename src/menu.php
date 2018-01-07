@@ -1,6 +1,6 @@
 <aside class=layout-column-start ng-switch on=selected>
 
-    <ul class="layout-row-start list">
+    <ul class="layout-row-center list">
         <li ng-repeat="item in baseWatch" ng-click="switch(item.name)">
             <?php include './images/icon.svg'; ?>
             <small>{{item.name}}</small>
@@ -24,7 +24,8 @@
     <div class="layout-row" ng-switch-when="dial">
         <article ng-repeat="dial in baseWatch.dial.options">
             <button data-watch ng-click="select('dial',dial)">{{dial.name}}
-            <img height=80px width=auto ng-src="/images/{{dial.image}}" /></button>
+            <img height=80px width=auto ng-src="/images/{{dial.image}}" />
+            </button>
         </article>
     </div>
 

@@ -20,7 +20,7 @@
     <main ng-cloak>
 
         <!-- Menus and Watch -->
-        <section class=layout-row>
+        <section class=layout-row-nowrap>
 
             <?php include './menu.php'; ?>
 
@@ -37,11 +37,20 @@
         </section>
 
         <!-- Share section and Price. -->
-        <nav>
-            <button ng-click=share(watch)>share</button>
+        <nav class=layout-row-nowrap-center-between>
+            <!-- Status and data -->
+            <div>
+                <h2>$ {{total}},00</h2>
+            </div>
+
+            <!-- Actions -->
+            <div>
+                <button class="button share" ng-click=share(watch)>share</button>
+                <button class="button buy" ng-click=share(watch)>Buy Today</button>
+            </div>
         </nav>
     </main>
-    <pre>{{watch | json}}</pre>
+    <pre>watch:{{watch | json}}</pre>
 
     <link rel="stylesheet" async defer href="/async.css" lazyload="1" media="screen" charset="utf-8">
     <script src="/vendors.js"></script>
