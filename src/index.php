@@ -17,7 +17,7 @@
 
 <body ng-app=WatchCustomizer ng-controller=Watch>
 
-    <main ng-cloak>
+    <main ng-cloak ng-init=init()>
 
         <!-- Menus and Watch -->
         <section class=layout-row-nowrap>
@@ -45,7 +45,7 @@
 
             <!-- Actions -->
             <div>
-                <button class="button share" ng-click=share(watch)>share</button>
+                <button class="button share" ng-click=init()>share</button>
                 <button class="button buy" ng-click=share(watch)>Buy Today</button>
             </div>
         </nav>

@@ -2,48 +2,94 @@ const dependencies = ['ngSanitize', 'ngAnimate'];
 
 const app = angular.module('WatchCustomizer', dependencies)
 
-    .constant('models', './dummy/')
+    .run(['$rootScope', '$location', '$window', '$http', function ($rootScope, $location, $window, $http) {
 
-    .run(['$rootScope', '$location', '$window', '$http', 'models', function ($rootScope, $location, $window, $http, models) {
+        // $http.defaults.cache = true;
 
-        $http.defaults.cache = true;
+        // $http.get('./dummy/watch.json').then(
+        //     function success(data) {
+        //         $rootScope.baseWatch = window.base = data.data;
 
-        $http.get(models + 'parts.json').then(
-            function success(data) {
-                $rootScope.categories = data.data;
-            },
-            function error(error) {
-                console.warn('Could not get "parts.json"\n', error);
-            }
-        );
+        //         (function Query() {
+        //             $scope.watch = {};
+        //             for (let i = 0; i < QueryParams.length; i++) {
 
-        $http.get(models + 'watch.json').then(
+        //                 let param = getParameterByName(QueryParams[i]);
+
+        //                 if (param !== null) {
+
+        //                     console.log($scope.watch);
+        //                     console.log($root.baseWatch);
+
+        //                     $scope.watch[QueryParams[i]][param] = $root.baseWatch[QueryParams[i]].details[param];
+
+        //                 }
+
+        //             }
+        //         }());
+        //     },
+        //     function error(error) {
+        //         console.log('Could not get "watch.json"\n', error);
+        //     }
+        // );
+
+
+        $http.get('./dummy/watch.json').then(
             function success(data) {
                 $rootScope.baseWatch = data.data;
+
+                // for (var i = 0; i < QueryParams.length; i++) {
+                //     let param = getParameterByName(QueryParams[i]);
+
+                //     if (param !== null) {
+                //         $scope.watch[QueryParams[i]] = {};
+                //         $scope.watch[QueryParams[i]][param] = $scope.baseWatch[QueryParams[i]].details[param];
+                //     }
+                // }
             },
             function error(error) {
-                console.warn('Could not get "watch.model.json"\n', error);
+                console.error('Could not get "watch.json"\n', error);
             }
         );
 
     }])
 
-    .controller('Watch', ['$rootScope', '$scope', '$http', function Watch($rootScope, $scope, $http) {
-
+    .controller('Watch', ['$scope', '$http', '$rootScope', function Watch($scope, $http, $rootScope) {
         $scope.watch = {};
         $scope.total = 0;
-        // $scope.watch.case = getParameterByName('case');
-        // $scope.watch.bezel = getParameterByName('bezel');
+        var QueryParams = ["case", "bezel", "hands", "dial"];
+
+        $http.get('./dummy/watch.json').then(
+            function success(data) {
+                $rootScope.baseWatch = data.data;
+
+                for (var i = 0; i < QueryParams.length; i++) {
+                    let param = getParameterByName(QueryParams[i]);
+
+                    if (param !== null) {
+                        $scope.watch[QueryParams[i]] = $scope.baseWatch[QueryParams[i]].details[param];
+                    }
+                    let items = Object.keys($scope.watch);
+                    $scope.total = 0;
+                    for (let i = 0; i < items.length; i++) {
+                        $scope.total += $scope.watch[items[i]].value;
+                    }
+                }
+            },
+            function error(error) {
+                console.error('Could not get "watch.json"', error);
+            }
+        );
 
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
                 results = regex.exec(url);
-            if (!results) return {};
-            if (!results[2]) return {};
+            if (!results) return null;
+            if (!results[2]) return null;
             return decodeURIComponent(results[2].replace(/\+/g, " "));
-        };
+        }
 
 
         $scope.select = function (name, properties) {
@@ -51,14 +97,13 @@ const app = angular.module('WatchCustomizer', dependencies)
             const items = Object.keys($scope.watch);
             $scope.total = 0;
             for (let i = 0; i < items.length; i++) {
-
                 $scope.total += $scope.watch[items[i]].value;
             }
 
         };
 
         $scope.switch = function (name) {
-            $scope.selected = name;
+            $scope.reveal = name;
         };
 
         // receives property name, and object name
@@ -69,10 +114,10 @@ const app = angular.module('WatchCustomizer', dependencies)
             key = encodeURI(key);
             value = encodeURI(value);
 
-            var params = document.location.search.substr(1).split('&');
+            let params = document.location.search.substr(1).split('&');
 
-            var i = params.length;
-            var x;
+            let i = params.length;
+            let x;
             while (i--) {
                 x = params[i].split('=');
 

@@ -1,7 +1,7 @@
 {
     "hands": {
         "name": "hands",
-        "options": {
+        "details": {
             "couro": {
                 "image": "daytona-4.png",
                 "name": "Golden Gold 24K",
@@ -17,7 +17,7 @@
 
     "dial": {
         "name": "dial",
-        "options": {
+        "details": {
             "resina": {
                 "image": "daytona-4.png",
                 "name": "Golden Gold 24K",
@@ -28,7 +28,7 @@
 
     "bezel": {
         "name": "bezel",
-        "options": {
+        "details": {
             "resina": {
                 "image": "bezel-type-3.png",
                 "name": "Golden Gold 24K",
@@ -49,7 +49,7 @@
 
     "case": {
         "name": "case",
-        "options": {
+        "details": {
             "gold": {
                 "image": "daytona-2.png",
                 "name": "Golden Gold 24K",
