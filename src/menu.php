@@ -24,7 +24,8 @@
     <div class="layout-row" ng-switch-when="dial">
         <article ng-repeat="dial in baseWatch.dial.options">
             <button data-watch ng-click="select('dial',dial)">{{dial.name}}
-            <img height=80px width=auto ng-src="/images/{{dial.image}}" /></button>
+            <img height=80px width=auto ng-src="/images/{{dial.image}}" />
+            </button>
         </article>
     </div>
 

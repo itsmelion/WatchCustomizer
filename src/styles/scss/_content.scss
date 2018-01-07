@@ -17,14 +17,22 @@ pre {
     }
 }
 
+main {
+    height: 100%;
+    position: relative;
+    section {
+        height: 100%;
+    }
+}
+
 aside {
     background-color: #252525;
-    width: 500px;
+    width: 450pt;
     position: relative;
     overflow-y: auto;
-    padding-right: 1rem;
     overflow-x: hidden;
-    margin-right: -2rem;
+    align-items: center;
+    padding-top: 1rem;
     ul {
         width: 100%;
     }
@@ -34,6 +42,7 @@ aside {
         opacity: 1;
         position: absolute;
         margin-top: 6rem;
+        width: 100%;
         &.ng-animate {
             transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s;
         }
@@ -70,7 +79,7 @@ aside {
     border: 1pt solid #202020;
     border-radius: $radius;
     width: 100%;
-    height: 600px;
+    height: 100%;
     img {
         position: absolute;
         z-index: 3;
@@ -127,5 +136,30 @@ button[data-watch] {
     }
     img {
         width: 64pt;
+    }
+}
+
+nav {
+    position: absolute;
+    height: 64pt;
+    background-color: #fafafa;
+    width: 100%;
+    bottom: 0;
+    padding: 12pt 28pt;
+}
+
+.button {
+    border: none;
+    border-radius: $radius;
+    font-weight: bold;
+    padding: 6pt 24pt;
+    &.share {
+        border: 1pt solid #00a3fa;
+        color: #00a3fa;
+        background-color: transparent;
+    }
+    &.buy {
+        background-color: #00a3fa;
+        color: white;
     }
 }

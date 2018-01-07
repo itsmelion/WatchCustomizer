@@ -31,8 +31,9 @@ const app = angular.module('WatchCustomizer', dependencies)
     .controller('Watch', ['$rootScope', '$scope', '$http', function Watch($rootScope, $scope, $http) {
 
         $scope.watch = {};
-        $scope.watch.case = getParameterByName('case');
-        $scope.watch.bezel = getParameterByName('bezel');
+        $scope.total = 0;
+        // $scope.watch.case = getParameterByName('case');
+        // $scope.watch.bezel = getParameterByName('bezel');
 
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
@@ -47,12 +48,17 @@ const app = angular.module('WatchCustomizer', dependencies)
 
         $scope.select = function (name, properties) {
             $scope.watch[name] = properties;
+            const items = Object.keys($scope.watch);
+            $scope.total = 0;
+            for (let i = 0; i < items.length; i++) {
+
+                $scope.total += $scope.watch[items[i]].value;
+            }
+
         };
 
         $scope.switch = function (name) {
             $scope.selected = name;
-            console.log($scope.selected);
-
         };
 
         // receives property name, and object name
