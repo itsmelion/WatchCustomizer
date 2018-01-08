@@ -5,15 +5,15 @@ const URL = 'watch.customizer:7888';
 
 // Its not ES6, so keep it short! ;)
 const vendors = [
-    "./node_modules/pace-js/pace.min.js",
+    // "./node_modules/pace-js/pace.min.js",
     "./node_modules/jquery/dist/jquery.min.js",
     "./node_modules/angular/angular.js",
     "./node_modules/angular-animate/angular-animate.js",
     "./node_modules/angular-sanitize/angular-sanitize.js",
-    "./node_modules/popper.js/dist/umd/popper.min.js",
-    "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-    "./node_modules/moment/min/moment.min.js",
-    "./node_modules/gsap/TweenLite.js",
+    // "./node_modules/popper.js/dist/umd/popper.min.js",
+    // "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+    // "./node_modules/moment/min/moment.min.js",
+    // "./node_modules/gsap/TweenLite.js",
     source + '/vendors/*.js'
 ];
 
