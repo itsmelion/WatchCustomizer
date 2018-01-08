@@ -17,7 +17,7 @@ $(function () {
 
     // Real time hour markers (SVG)
     // ## Hard Pointers
-    var setTime = function () {
+    const setTime = function () {
         var date = new Date(),
             MINUTE = 60,
             HOUR = 60 * MINUTE,
@@ -25,11 +25,11 @@ $(function () {
             minutes = (date.getMinutes() * MINUTE) + seconds,
             hours = (date.getHours() * HOUR) + minutes;
 
-        document.getElementById('bigSecondHand').setAttribute('style', 'transform:rotate(' + (360 * (seconds / MINUTE) + 90) + 'deg)');
-        document.getElementById('bigMinuteHand').setAttribute('style', 'transform:rotate(' + 360 * (minutes / HOUR) + 'deg)');
-        document.getElementById('bigHourHand').setAttribute('style', 'transform:rotate(' + (360 * (hours / (12 * HOUR)) + 180) + 'deg)');
+        document.getElementById('bigSecondHand').setAttribute('style', 'transform:rotate(' + (360 * (seconds / MINUTE) + 90) + 'deg)'); // translate(-58px,51px)
+        document.getElementById('bigMinuteHand').setAttribute('style', 'transform:rotate(' + 360 * (minutes / HOUR) + 'deg)'); // translate(99px, 5px)
+        document.getElementById('bigHourHand').setAttribute('style', 'transform:rotate(' + (360 * (hours / (12 * HOUR)) + 180) + 'deg)'); //translate(-108px,-56px)
     };
     setTime();
-    var interval = setInterval(setTime, 1000);
+    const interval = setInterval(setTime, 1000);
 
 });

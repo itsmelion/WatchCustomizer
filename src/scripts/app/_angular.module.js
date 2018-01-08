@@ -4,64 +4,18 @@ const app = angular.module('WatchCustomizer', dependencies)
 
     .run(['$rootScope', '$location', '$window', '$http', function ($rootScope, $location, $window, $http) {
 
-        // $http.defaults.cache = true;
-
-        // $http.get('./dummy/watch.json').then(
-        //     function success(data) {
-        //         $rootScope.baseWatch = window.base = data.data;
-
-        //         (function Query() {
-        //             $scope.watch = {};
-        //             for (let i = 0; i < QueryParams.length; i++) {
-
-        //                 let param = getParameterByName(QueryParams[i]);
-
-        //                 if (param !== null) {
-
-        //                     console.log($scope.watch);
-        //                     console.log($root.baseWatch);
-
-        //                     $scope.watch[QueryParams[i]][param] = $root.baseWatch[QueryParams[i]].details[param];
-
-        //                 }
-
-        //             }
-        //         }());
-        //     },
-        //     function error(error) {
-        //         console.log('Could not get "watch.json"\n', error);
-        //     }
-        // );
-
-
-        $http.get('./dummy/watch.json').then(
-            function success(data) {
-                $rootScope.baseWatch = data.data;
-
-                // for (var i = 0; i < QueryParams.length; i++) {
-                //     let param = getParameterByName(QueryParams[i]);
-
-                //     if (param !== null) {
-                //         $scope.watch[QueryParams[i]] = {};
-                //         $scope.watch[QueryParams[i]][param] = $scope.baseWatch[QueryParams[i]].details[param];
-                //     }
-                // }
-            },
-            function error(error) {
-                console.error('Could not get "watch.json"\n', error);
-            }
-        );
+        $http.defaults.cache = true;
 
     }])
 
     .controller('Watch', ['$scope', '$http', '$rootScope', function Watch($scope, $http, $rootScope) {
         $scope.watch = {};
         $scope.total = 0;
-        var QueryParams = ["case", "bezel", "hands", "dial"];
+        const QueryParams = ["case", "bezel", "hands", "dial"];
 
         $http.get('./dummy/watch.json').then(
             function success(data) {
-                $rootScope.baseWatch = data.data;
+                $scope.baseWatch = data.data;
 
                 for (var i = 0; i < QueryParams.length; i++) {
                     let param = getParameterByName(QueryParams[i]);
