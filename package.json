@@ -59,6 +59,6 @@
     "gulp-uglify": "latest",
     "gulp-useref": "^3.1.4",
     "minimatch": "^3.0.4",
-    "yargs": "^10.1.0"
+    "yargs": "^10.1.1"
   }
 }
